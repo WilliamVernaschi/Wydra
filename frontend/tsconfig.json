@@ -1,9 +1,8 @@
-/* To learn more about this file see: https://angular.io/config/tsconfig. */
 {
   "compileOnSave": false,
   "compilerOptions": {
-    "baseUrl": "./",
-    "outDir": "./dist/out-tsc",
+    "baseUrl": "./frontend", // Base directory for resolving paths
+    "outDir": "./frontend/dist/out-tsc", // Output directory for compiled files
     "forceConsistentCasingInFileNames": true,
     "strict": true,
     "noImplicitOverride": true,
@@ -18,16 +17,19 @@
     "importHelpers": true,
     "target": "es2022",
     "module": "es2020",
-    "lib": [
-      "es2018", 
-      "dom"
-    ],
-    "useDefineForClassFields": false
+    "lib": ["es2018", "dom"],
+    "useDefineForClassFields": false,
+    "typeRoots": ["node_modules/@types"], // Keep this default for types
+    "paths": {
+      "@ionic/*": ["node_modules/@ionic/*"] // Resolve Ionic modules
+    }
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,
     "strictInjectionParameters": true,
     "strictInputAccessModifiers": true,
     "strictTemplates": true
-  }
+  },
+  "include": ["frontend/**/*.ts"], // Include all TypeScript files in /frontend
+  "exclude": ["node_modules", "frontend/node_modules"] // Ensure node_modules are excluded
 }
