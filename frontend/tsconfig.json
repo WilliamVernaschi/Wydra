@@ -1,8 +1,8 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
-    "baseUrl": "./frontend", // Base directory for resolving paths
-    "outDir": "./frontend/dist/out-tsc", // Output directory for compiled files
+    "baseUrl": "./", // Base directory for resolving paths
+    "outDir": "./dist/out-tsc", // Output directory for compiled files
     "forceConsistentCasingInFileNames": true,
     "strict": true,
     "noImplicitOverride": true,
@@ -30,6 +30,6 @@
     "strictInputAccessModifiers": true,
     "strictTemplates": true
   },
-  "include": ["frontend/**/*.ts"], // Include all TypeScript files in /frontend
+  "include": ["**/*.ts"], // Include all TypeScript files recursively
   "exclude": ["node_modules", "frontend/node_modules"] // Ensure node_modules are excluded
 }
