@@ -1,29 +1,29 @@
-<ion-card>
+<ion-card (click)="verReviewCompleta()">
   <ion-grid>
     <ion-row>
       <ion-col size="2" style="display: flex; align-items: center; justify-content: center;">
         <img src="../../assets/steve.jpeg" style="object-fit: cover; width: 100%; height: 100%;">
       </ion-col>
       <ion-col size="5" style="display: flex; align-items: center; justify-content: center;">
-        Luis Enrico
+        {{review.nomeUsuario}}
       </ion-col>
       <ion-col size="5" style="display: flex; align-items: center; justify-content: center;">
-        12 minutos atrás
+        {{quantoTempoAtras}}
       </ion-col>
     </ion-row>
-    <ion-item-divider></ion-item-divider>
-    
+    <hr>
+
     <ion-row>
       <ion-col size="5" style="display: flex; align-items: center; justify-content: center;">
         <img src="../../assets/yeezus.jpg" style="object-fit: cover; width: 100%; height: 100%;">
       </ion-col>
       <ion-col>
-        <p style="margin: 0;">"Kanye West redefiniu o rap com Yeezus, um álbum ousado, cru e experimental que desafia convenções. Lançado em 2013, o projeto é uma jornada sônica que mistura industrial, eletrônica e hip-hop, criando um som abrasivo e perturbador, mas incrivelmente cativante."
+        <p style="margin: 0;">"{{comentarioAmostra}}"</p>
       </ion-col>
     </ion-row>
-    
+
     <ion-row>
-      <ion-col size="10">Yeezus, Kanye West</ion-col>
+      <ion-col size="10">{{ review.musica }}, {{ review.artista}}</ion-col>
       <ion-col size="1"><ion-icon name="heart-outline"></ion-icon></ion-col>
       <ion-col size="1"><ion-icon name="chatbox-ellipses-outline"></ion-icon></ion-col>
     </ion-row>
