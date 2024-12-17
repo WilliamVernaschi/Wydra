@@ -1,4 +1,4 @@
-package io.ionic.starter;
+package io.uem.wydra;
 
 import com.getcapacitor.BridgeActivity;
 
