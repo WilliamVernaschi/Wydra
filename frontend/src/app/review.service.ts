@@ -13,7 +13,7 @@ export class ReviewService {
 
 
 
-  getAllReviews(): Promise<Review> {
-    return firstValueFrom(this.http.get<Review>('/api/reviews'));
+  getAllReviews(): Promise<Review[]> {
+    return firstValueFrom(this.http.get<Review[]>('/api/reviews'));
   }
 }

@@ -6,6 +6,7 @@ import { BuscaPage } from './busca.page';
 import { ExploreContainerComponentModule } from '../explore-container/explore-container.module';
 
 import { BuscaPageRoutingModule } from './busca-routing.module';
+import { SearchResultItemComponent } from '../search-result-item/search-result-item.component';
 
 @NgModule({
   imports: [
@@ -15,6 +16,6 @@ import { BuscaPageRoutingModule } from './busca-routing.module';
     ExploreContainerComponentModule,
     BuscaPageRoutingModule
   ],
-  declarations: [BuscaPage]
+  declarations: [BuscaPage, SearchResultItemComponent]
 })
 export class BuscaPageModule {}

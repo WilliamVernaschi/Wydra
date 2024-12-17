@@ -1,5 +1,7 @@
 <ion-card
-(click)="verReviewCompleta()" style="cursor: pointer;">
+
+>
+<button ion-item>
   <ion-grid>
     <ion-row>
       <ion-col size="2" style="display: flex; align-items: center; justify-content: center;">
@@ -14,7 +16,7 @@
     </ion-row>
     <hr>
 
-    <ion-row>
+    <ion-row (click)="verReviewCompleta()" style="cursor: pointer;">
       <ion-col size="5" style="display: flex; align-items: center; justify-content: center;">
         <img src="../../assets/yeezus.jpg" style="object-fit: cover; width: 100%; height: 100%;">
       </ion-col>
@@ -24,9 +26,10 @@
     </ion-row>
 
     <ion-row>
-      <ion-col size="10">{{ review.musica }}, {{ review.artista}}</ion-col>
-      <ion-col size="1"><ion-icon name="heart-outline"></ion-icon></ion-col>
-      <ion-col size="1"><ion-icon name="chatbox-ellipses-outline"></ion-icon></ion-col>
+      <ion-col style="display: flex; align-items: center; justify-content: flex-start;" size="10">{{ review.musica }}, {{ review.artista}}</ion-col>
+      <ion-col (click)="likeReview()"  size="1"><ion-icon [style.color]="liked ? 'red' : 'inherit'" name="heart-outline"></ion-icon></ion-col>
+      <ion-col (click)="openComments()" size="1"><ion-icon name="chatbox-ellipses-outline"></ion-icon></ion-col>
     </ion-row>
   </ion-grid>
+</button>
 </ion-card>

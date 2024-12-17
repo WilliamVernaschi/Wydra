@@ -13,6 +13,8 @@ export class AmostraReviewComponent implements OnInit {
   @Input({required: true}) review! : Review;
   constructor(private navCtrl : NavController) { }
 
+  liked : boolean = false;
+
 
   ngOnInit() {}
 
@@ -43,6 +45,14 @@ export class AmostraReviewComponent implements OnInit {
       return `${minutos} minuto${minutos > 1 ? 's' : ''} atrás`
     }
     return `${segundos} segundo${segundos > 1 ? 's' : ''} atrás`
+  }
+
+  likeReview() {
+    this.liked = !this.liked;
+  }
+
+  openComments(){
+
   }
 
   get comentarioAmostra() : string{

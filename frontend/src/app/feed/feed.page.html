@@ -13,8 +13,6 @@
     </ion-toolbar>
   </ion-header>
 
-  <app-amostra-review [review]="review1"></app-amostra-review>
-  <app-amostra-review [review]="review1"></app-amostra-review>
-  <app-amostra-review [review]="review1"></app-amostra-review>
+  <app-amostra-review *ngFor="let review of feedReviews" [review]="review"></app-amostra-review>
   
 </ion-content>

@@ -8,6 +8,9 @@ import { ExploreContainerComponentModule } from '../explore-container/explore-co
 import { FeedPageRoutingModule } from './feed-routing.module';
 import { AmostraReviewComponent } from '../amostra-review/amostra-review.component';
 import { ReviewComponent } from '../review/review.component';
+import { ReviewService } from '../review.service';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { ToastService } from '../toast.service';
 
 @NgModule({
   imports: [
@@ -17,6 +20,7 @@ import { ReviewComponent } from '../review/review.component';
     ExploreContainerComponentModule,
     FeedPageRoutingModule,
   ],
-  declarations: [FeedPage, AmostraReviewComponent, ReviewComponent]
+  declarations: [FeedPage, AmostraReviewComponent, ReviewComponent],
+  providers: [ReviewService, HttpClient, ToastService]
 })
 export class FeedPageModule {}
