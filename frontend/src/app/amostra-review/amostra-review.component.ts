@@ -1,15 +1,18 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {Review} from "../models/Review";
+import { Router } from '@angular/router';
+import { NavController} from '@ionic/angular'
 
 @Component({
   selector: 'app-amostra-review',
-  templateUrl: './amostra.component.html',
-  styleUrls: ['./amostra.component.scss'],
+  templateUrl: './amostra-review.component.html',
+  styleUrls: ['./amostra-review.component.scss'],
 })
-export class AmostraComponent implements OnInit {
+export class AmostraReviewComponent implements OnInit {
 
-  @Input({required: true}) review! : Review
-  constructor() { }
+  @Input({required: true}) review! : Review;
+  constructor(private navCtrl : NavController) { }
+
 
   ngOnInit() {}
 
@@ -48,8 +51,9 @@ export class AmostraComponent implements OnInit {
       : this.review.comentario;
   }
 
-  void verReviewCompleta(){
-    
+  verReviewCompleta(){
+    console.log('Ver review completa')
+    this.navCtrl.navigateForward(['/tabs/feed/review', this.review.id])
   }
 
 }

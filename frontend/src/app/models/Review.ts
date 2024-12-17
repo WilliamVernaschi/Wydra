@@ -1,9 +1,10 @@
 export interface Review {
     id: string;
     userId: string;
-    productId: string;
-    rating: number;
-    comment: string;
+    nomeUsuario: string;
+    avaliacao: number;
+    comentario: string;
+    musica: string;
+    artista: string;
     createdAt: Date;
-    updatedAt: Date;
 }
