@@ -1,6 +1,6 @@
 from fastapi import FastAPI, HTTPException, Depends
-from database import users_collection, tracks_collection, reviews_collection
-from models import UserCreate, UserLogin, TrackCreate, ReviewCreate
+from database import users_collection, tracks_collection, reviews_collection, likes_collection, comments_collection
+from models import UserCreate, UserLogin, TrackCreate, ReviewCreate, LikeReviewCreate, CommentCreate
 from auth import hash_password, verify_password, create_access_token, get_current_user
 from datetime import timedelta
 from bson import ObjectId
@@ -133,3 +133,35 @@ def get_reviews(track_id: str):
     for review in reviews:
         review["_id"] = str(review["_id"])
     return reviews
+
+# --- Endpoints de likes ---
+
+@app.post("/like")
+def add_review(like: LikeReviewCreate, current_user: dict = Depends(get_current_user)):
+    if not likes_collection.find_one({"_id": ObjectId(like.review_id)}):
+        raise HTTPException(status_code=404, detail="Avaliação não encontrada")
+    
+    new_like = {
+        "review_id": like.review_id,
+        "user_id": current_user["user_id"]
+    }
+    likes_collection.insert_one(new_like)
+    return {"message": "Gostei adicionado com sucesso"}
+
+# --- Endpoints de comentarios ---
+
+@app.post("/comment")
+def add_review(comment: CommentCreate, current_user: dict = Depends(get_current_user)):
+    if not comments_collection.find_one({"_id": ObjectId(comment.review_id)}):
+        raise HTTPException(status_code=404, detail="Avaliação não encontrada")
+    
+    new_comment = {
+        "review_id": like.review_id,
+        "comment": comment.comment,
+        "datetime": comment.datetime,
+        "user_id": current_user["user_id"]
+    }
+    comments_collection.insert_one(new_comment)
+    return {"message": "Comentário adicionado com sucesso"}
+
+

@@ -26,12 +26,10 @@ class ReviewCreate(BaseModel):
 # Modelo para marcar gostei na avaliação
 class LikeReviewCreate(BaseModel):
     review_id: str
-    author_id: str
 
 # Modelo para adicionar comentário na review
 class CommentCreate(BaseModel):
     review_id: str
-    author_id: str
     comment: str
     datetime: str
 
