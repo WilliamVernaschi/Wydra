@@ -75,6 +75,22 @@ def get_all_artist_tracks(artist_name: str):
 
     return {"total_tracks": len(tracks), "tracks": tracks}
 
+@app.get("/track/search")
+def search_track(track: str, artist: str = None):
+    params = {'track': track}
+    if artist:
+        params['artist'] = artist
+
+    data = fetch_from_lastfm("track.search", params)
+
+    # Verifica se a busca retornou resultados
+    trackmatches = data.get("results", {}).get("trackmatches", {}).get("track")
+    if not trackmatches:
+        raise HTTPException(status_code=404, detail="Nenhuma faixa encontrada")
+
+    return {"track_count": len(trackmatches), "tracks": trackmatches}
+
+
 # --- Endpoints de usuários ---
 
 @app.post("/register")
