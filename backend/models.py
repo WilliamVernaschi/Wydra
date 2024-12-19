@@ -22,3 +22,14 @@ class ReviewCreate(BaseModel):
     track_id: str
     rating: int
     comment: str
+
+# Modelo para marcar gostei na avaliação
+class LikeReviewCreate(BaseModel):
+    review_id: str
+
+# Modelo para adicionar comentário na review
+class CommentCreate(BaseModel):
+    review_id: str
+    comment: str
+    datetime: str
+

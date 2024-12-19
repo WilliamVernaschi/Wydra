@@ -1,6 +1,8 @@
 # Specifies intentionally untracked files to ignore when using Git
 # http://git-scm.com/docs/gitignore
 
+/backend/__pycache__/
+/venv
 /frontend/*~
 /frontend/*.sw[mnpcod]
 /frontend/.tmp
