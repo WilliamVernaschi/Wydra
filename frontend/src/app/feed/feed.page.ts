@@ -21,7 +21,6 @@ export class FeedPage implements OnInit{
     }
     catch(error) {
       this.toastService.failure("Verifique sua conexão com a internet.")
-      console.log("nao conseguiu pegar as reviews da api")
     }
     
     this.feedReviews.push(this.review1);

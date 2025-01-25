@@ -1,35 +1,45 @@
-<ion-card
+<ion-card class="ion-no-padding">
+    <ion-card-header>
+      <ion-row>
+        <ion-col size="auto" style="display: flex; align-items: center; justify-content: center;">
+          <img src="../../assets/yeezus.jpg" style="object-fit: cover; width: 72px; height: 72px;">
+        </ion-col>
+        <ion-col >
+          <ion-row class="pretty-font title"><ion-col class="title-container" size="auto">{{review.musica}}</ion-col></ion-row>
 
->
-<button ion-item>
-  <ion-grid>
+          <ion-row class="pretty-font artist"><ion-col>{{review.artista}}</ion-col></ion-row>
+          <ion-row>
+            <ion-col class="center-in-col"  size="auto"><img  src="../../assets/steve.jpeg" style="object-fit: cover; width: 22px; height: 22px; border-radius: 50%;"></ion-col>
+            <ion-col size="auto" class="card-font user-name center-in-col">{{review.nomeUsuario}}</ion-col>
+          </ion-row>
+        </ion-col>
+      </ion-row>
+    </ion-card-header>
+    
+    
+    <ion-card-content class="card-font">
+      <hr>
+      <p>{{comentarioAmostra}}</p>
+    
+
+    
     <ion-row>
-      <ion-col size="2" style="display: flex; align-items: center; justify-content: center;">
-        <img src="../../assets/steve.jpeg" style="object-fit: cover; width: 100%; height: 100%;">
+      <ion-col size="3" class="center-in-col">
+        <ion-row>
+          <ion-col class="center-in-col" size="auto"><ion-icon name="heart-sharp"></ion-icon></ion-col>
+          <ion-col class="center-in-col" size="6">154</ion-col>
+        </ion-row>
       </ion-col>
-      <ion-col size="5" style="display: flex; align-items: center; justify-content: center;">
-        {{review.nomeUsuario}}
+      <ion-col size="3" class="center-in-col">
+        <ion-row>
+          <ion-col class="center-in-col" size="auto"><ion-icon name="chatbubbles"></ion-icon></ion-col>
+          <ion-col class="center-in-col" size="6">32</ion-col>
+        </ion-row>
       </ion-col>
-      <ion-col size="5" style="display: flex; align-items: center; justify-content: flex-end;">
-        {{quantoTempoAtras}}
-      </ion-col>
+      
+      <ion-col size="auto" class="center-in-col"><ion-icon name="bookmark-outline"></ion-icon> </ion-col>
+      <ion-col style="display: flex; flex-direction: row-reverse;" class="center-in-col"><ion-button>Discutir</ion-button></ion-col>
     </ion-row>
-    <hr>
-
-    <ion-row (click)="verReviewCompleta()" style="cursor: pointer;">
-      <ion-col size="5" style="display: flex; align-items: center; justify-content: center;">
-        <img src="../../assets/yeezus.jpg" style="object-fit: cover; width: 100%; height: 100%;">
-      </ion-col>
-      <ion-col>
-        <p style="margin: 0;">"{{comentarioAmostra}}"</p>
-      </ion-col>
-    </ion-row>
-
-    <ion-row>
-      <ion-col style="display: flex; align-items: center; justify-content: flex-start;" size="10">{{ review.musica }}, {{ review.artista}}</ion-col>
-      <ion-col (click)="likeReview()"  size="1"><ion-icon [style.color]="liked ? 'red' : 'inherit'" name="heart-outline"></ion-icon></ion-col>
-      <ion-col (click)="openComments()" size="1"><ion-icon name="chatbox-ellipses-outline"></ion-icon></ion-col>
-    </ion-row>
-  </ion-grid>
-</button>
+  </ion-card-content>
+  
 </ion-card>

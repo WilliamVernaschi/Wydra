@@ -2,6 +2,7 @@ import {Component, Input, OnInit} from '@angular/core';
 import {Review} from "../models/Review";
 import { Router } from '@angular/router';
 import { NavController} from '@ionic/angular'
+import { extractColors } from "extract-colors";
 
 @Component({
   selector: 'app-amostra-review',
@@ -12,11 +13,14 @@ export class AmostraReviewComponent implements OnInit {
 
   @Input({required: true}) review! : Review;
   constructor(private navCtrl : NavController) { }
+  dominante = "#000000";
 
   liked : boolean = false;
 
 
-  ngOnInit() {}
+  async ngOnInit() {
+    this.dominante = await this.corDominante();
+  }
 
   get quantoTempoAtras() : string{
     const agora = new Date()
@@ -52,7 +56,8 @@ export class AmostraReviewComponent implements OnInit {
   }
 
   openComments(){
-
+    
+    
   }
 
   get comentarioAmostra() : string{
@@ -61,13 +66,16 @@ export class AmostraReviewComponent implements OnInit {
       : this.review.comentario;
   }
 
+  async corDominante(){
+    return (await extractColors("../../assets/yeezus.jpg"))[0].hex;
+
+  }
+
+
+
   verReviewCompleta(){
     console.log('Ver review completa')
     this.navCtrl.navigateForward(['/tabs/feed/review', this.review.id])
   }
 
 }
-function verReviewCompleta() {
-    throw new Error('Function not implemented.');
-}
-

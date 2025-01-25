@@ -1,17 +1,21 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>
-      Feed
+    <ion-title class="ion-text-center">
+      Wydra
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Feed</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content [fullscreen]="true" class="ion-padding">
+
+  <ion-segment mode="ios" value="avaliacoes">
+    <ion-segment-button value="avaliacoes">
+      <ion-label>Avaliações</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="explorar">
+      <ion-label>Explorar</ion-label>
+    </ion-segment-button>
+  </ion-segment>
 
   <app-amostra-review *ngFor="let review of feedReviews" [review]="review"></app-amostra-review>
   

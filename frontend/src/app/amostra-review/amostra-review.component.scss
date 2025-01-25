@@ -14,13 +14,68 @@ hr {
   background-color: lightgray;
 }
 
-
+button {
+  background-color: linear-gradient(to right, var(--ion-color-primary), var(--ion-color-secondary));
+}
 
 ion-card {
   transition: transform 0.2s ease, box-shadow 0.2s ease;
+  border-radius: 12px;
+  margin-left: 0px;
+  margin-right: 0px;
+
 }
 
 ion-card.clicked {
   transform: scale(0.95); /* Slightly shrink the card */
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Slight shadow to indicate depth */
+}
+
+ion-card-header {
+  padding-bottom: 0px;
+}
+
+.pretty-font {
+  font-family: "Joan", serif;
+}
+
+.title {
+  font-size: 16px;
+}
+
+.artist {
+  font-size: 12px;
+}
+
+.card-font {
+  font-family: "Libre Franklin", sans-serif;
+  font-optical-sizing: auto;
+}
+
+.title-container {
+  margin: 5px;
+  padding: 0px;
+}
+
+.user-name {
+  font-size: 10px;
+
+}
+
+
+.title-container::after {
+  content: '';
+  position: absolute;
+  background-color: hsl(0, 100, 60);
+  height: 40%; /* Covers half of the text's vertical space */
+  width: 100%;
+  bottom: 0;
+  left: 0;
+  z-index: -1; /* Place behind the text */
+}
+
+.center-in-col {
+  display: flex;
+  direction: column;
+  align-items: center;
 }
