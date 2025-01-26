@@ -1,0 +1,17 @@
+ion-card-header {
+    padding-bottom: 0px;
+}
+
+.descricao-item {
+    background-color: var(--ion-color-primary-shade);
+    padding: 10px;
+    border-radius: 5px;
+    margin-right: 10px;
+    color: white; /* Adjust text color for better contrast */
+    font-size: 12px; 
+  }
+
+ion-card {
+    max-width: 500px;
+    width: 100%;
+}

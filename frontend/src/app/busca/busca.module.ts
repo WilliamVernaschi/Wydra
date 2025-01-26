@@ -7,6 +7,8 @@ import { ExploreContainerComponentModule } from '../explore-container/explore-co
 
 import { BuscaPageRoutingModule } from './busca-routing.module';
 import { SearchResultItemComponent } from '../search-result-item/search-result-item.component';
+import { FancyScoreComponent } from '../fancy-score/fancy-score.component';
+import { FancyTitleComponent } from '../fancy-title/fancy-title.component';
 
 @NgModule({
   imports: [
@@ -16,6 +18,6 @@ import { SearchResultItemComponent } from '../search-result-item/search-result-i
     ExploreContainerComponentModule,
     BuscaPageRoutingModule
   ],
-  declarations: [BuscaPage, SearchResultItemComponent]
+  declarations: [BuscaPage, SearchResultItemComponent, FancyScoreComponent, FancyTitleComponent]
 })
 export class BuscaPageModule {}

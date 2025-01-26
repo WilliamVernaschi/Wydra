@@ -1,15 +1,22 @@
-<ion-card class="ion-no-padding">
+<ion-card class="ion-no-padding" (click)="goToReview()">
     <ion-card-header>
       <ion-row>
         <ion-col size="auto" style="display: flex; align-items: center; justify-content: center;">
-          <img src="../../assets/yeezus.jpg" style="object-fit: cover; width: 72px; height: 72px;">
+          <img [src]="review.albumCoverPath" style="object-fit: cover; width: 108px; height: 108px;">
         </ion-col>
         <ion-col >
-          <ion-row class="pretty-font title"><ion-col class="title-container" size="auto">{{review.musica}}</ion-col></ion-row>
-
-          <ion-row class="pretty-font artist"><ion-col>{{review.artista}}</ion-col></ion-row>
           <ion-row>
-            <ion-col class="center-in-col"  size="auto"><img  src="../../assets/steve.jpeg" style="object-fit: cover; width: 22px; height: 22px; border-radius: 50%;"></ion-col>
+            <ion-col size="auto" class="ion-no-padding">
+              <ion-row class="pretty-font title"><ion-col size="auto"><app-fancy-title [color]="dominante">{{review.musica}}</app-fancy-title></ion-col></ion-row>
+
+              <ion-row class="pretty-font artist"><ion-col>{{review.artista}}</ion-col></ion-row>
+            </ion-col>
+            <ion-col style="display: flex; flex-direction: row-reverse;">
+              <app-fancy-score>{{review.avaliacao.toFixed(1)}}</app-fancy-score>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col class="center-in-col"  size="auto"><img  [src]="review.reviewerPath" style="object-fit: cover; width: 32px; height: 32px; border-radius: 50%;"></ion-col>
             <ion-col size="auto" class="card-font user-name center-in-col">{{review.nomeUsuario}}</ion-col>
           </ion-row>
         </ion-col>
@@ -38,8 +45,10 @@
       </ion-col>
       
       <ion-col size="auto" class="center-in-col"><ion-icon name="bookmark-outline"></ion-icon> </ion-col>
-      <ion-col style="display: flex; flex-direction: row-reverse;" class="center-in-col"><ion-button>Discutir</ion-button></ion-col>
+      <ion-col style="display: flex; flex-direction: row-reverse;" class="center-in-col"><ion-button (click)="goToReview()" >Discutir</ion-button></ion-col>
     </ion-row>
   </ion-card-content>
   
 </ion-card>
+
+

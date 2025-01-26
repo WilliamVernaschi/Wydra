@@ -1,0 +1,22 @@
+:host {
+  --bg-color: initial; // Default value to avoid undefined behavior
+}
+
+.line-styling {
+  position: relative;
+  display: inline-block;
+  color: var(--ion-text-color);
+  font-family: "Joan";
+}
+
+.line-styling::after {
+  content: '';
+  position: absolute;
+  background-color: var(--bg-color, blue);
+  height: 50%; 
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: -1; 
+  pointer-events: none; 
+}

@@ -8,20 +8,50 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-card>
-    <ion-card-header>
-      <ion-card-title>{{ review.musica }} - {{ review.artista }}</ion-card-title>
-      <ion-card-subtitle>
-        Avaliação por {{ review.nomeUsuario }} on {{ review.createdAt | date:'medium' }}
-      </ion-card-subtitle>
-    </ion-card-header>
-    <ion-card-content>
-      <ion-item lines="none">
-        <ion-label>Nota</ion-label>
-        <ion-badge slot="end" color="primary">{{ review.avaliacao }}/5</ion-badge>
-      </ion-item>
-      <p>{{ review.comentario }}</p>
-    </ion-card-content>
-  </ion-card>
+<ion-content class="ion-padding">
+  <div class="content">
+
+    <ion-title class="song-title"><app-fancy-title [color]="corDominante">{{review.musica}}</app-fancy-title></ion-title>
+    <ion-title class="artist-name-subtitle">{{review.artista}}</ion-title>
+    <img [src]="review.albumCoverPath" style="object-fit: cover; width: 320px; height: 320px; margin-top: 40px;">
+
+    <hr>
+
+    <ion-grid>
+      <ion-row>
+        <ion-col size="3" class="align-center">
+          <img [src]="review.reviewerPath" style="object-fit: cover; width: 90px; height: 90px; border-radius: 50%;">
+        </ion-col>
+        <ion-col class="align-center">
+          <div>
+            <ion-row>Avaliado por: <b>{{review.nomeUsuario}}</b></ion-row>
+            <ion-row>Gênero: <b>Rock</b></ion-row>
+            <ion-row>Data de Avaliação: <b>28/12/2024</b></ion-row>
+          </div>
+        </ion-col>
+        <ion-col size="3" class="align-center">
+          <app-fancy-score size="90px">{{review.avaliacao.toFixed(1)}}</app-fancy-score>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+    <hr>
+
+    <ion-text>
+      <ng-container *ngIf="review.comentario">
+        <p class="first-paragraph">{{ review.comentario.split('\n')[0] }}</p>
+        <ng-container *ngFor="let paragraph of review.comentario.split('\n').slice(1)">
+          <p>{{ paragraph }}</p>
+        </ng-container>
+      </ng-container>
+    </ion-text>
+    <hr>
+    <ion-title>Comentários</ion-title>
+
+    <ion-card style="height: 120px;"></ion-card>
+    <ion-card style="height: 180px;"></ion-card>
+    <ion-card style="height: 90px;"></ion-card>
+    
+  
+  </div>
 </ion-content>

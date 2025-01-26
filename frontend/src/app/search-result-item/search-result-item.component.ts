@@ -1,5 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ResultadoBusca } from '../models/ResultadoBusca';
+import { SearchResult } from '../models/SearchResult';
+import { SearchService } from '../search.service';
+import { DominantColorService } from '../dominant-color.service';
 
 @Component({
   selector: 'app-search-result-item',
@@ -7,10 +10,14 @@ import { ResultadoBusca } from '../models/ResultadoBusca';
   styleUrls: ['./search-result-item.component.scss'],
 })
 export class SearchResultItemComponent  implements OnInit {
-  @Input({required: true}) resultadoBusca! : ResultadoBusca;
+  @Input({required: true}) resultadoBusca! : SearchResult;
+  dominante = "#ffffff";
 
-  constructor() { }
+  constructor(private searchService : SearchService, private dcService : DominantColorService) { }
 
-  ngOnInit() {}
+  async ngOnInit() {
+    
+    this.dominante = await this.dcService.corDominante(this.resultadoBusca.albumCoverPath);
+  }
 
 }

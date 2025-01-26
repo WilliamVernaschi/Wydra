@@ -7,4 +7,6 @@ export interface Review {
     musica: string;
     artista: string;
     createdAt: Date;
+    albumCoverPath: string;
+    reviewerPath: string;
 }

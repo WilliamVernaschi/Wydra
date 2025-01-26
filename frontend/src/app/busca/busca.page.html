@@ -13,8 +13,13 @@
     </ion-toolbar>
   </ion-header>
 
-  <ion-searchbar placeholder="Digite uma música"></ion-searchbar>
-  <hr>
-  <app-search-result-item *ngFor="let result of results" [resultadoBusca]="result"></app-search-result-item>
+  
+
+  <div class="container">
+    <ion-searchbar placeholder="Digite uma música"></ion-searchbar>
+    <hr>
+    <app-search-result-item *ngFor="let result of results" [resultadoBusca]="result"></app-search-result-item>
+  </div>
+  
 
 </ion-content>

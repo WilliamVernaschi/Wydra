@@ -1,9 +1,41 @@
-<ion-card>
+<ion-card class="ion-no-padding">
   <ion-card-header>
-    <ion-card-title>{{resultadoBusca.titulo}}</ion-card-title>
-    <ion-card-subtitle>{{resultadoBusca.artista}}</ion-card-subtitle>
+    <ion-row>
+      <ion-col size="auto" style="display: flex; align-items: center; justify-content: center;">
+        <img [src]="resultadoBusca.albumCoverPath" style="object-fit: cover; width: 108px; height: 108px;">
+      </ion-col>
+      <ion-col size="auto">
+        <ion-row>
+            <ion-row class="pretty-font title"><ion-col size="auto"><app-fancy-title [color]="dominante">{{resultadoBusca.titulo}}</app-fancy-title></ion-col>
+              <ion-col>{{resultadoBusca.artista}}</ion-col>
+            </ion-row>
+
+            
+          
+        </ion-row>
+      </ion-col>
+      <ion-col style="display: flex; flex-direction: row-reverse;">
+        <app-fancy-score>{{resultadoBusca.avaliacaoMedia}}</app-fancy-score>
+      </ion-col>
+    </ion-row>
   </ion-card-header>
-  <ion-card-content>
-    <ion-grid></ion-grid>
-  </ion-card-content>
+  
+  
+  <ion-card-content class="card-font">
+    <hr>
+    <p>A comunidade descreve esse álbum como:</p>
+
+    
+      <ion-badge *ngFor="let descricao of resultadoBusca.descricaoComunidade" class="descricao-item">{{ descricao }}</ion-badge>
+    
+
+
+  
+
+  
+  
+</ion-card-content>
+
 </ion-card>
+
+

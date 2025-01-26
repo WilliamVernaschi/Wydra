@@ -6,4 +6,4 @@ Para rodar o frontend:
 
 `ionic serve`
 
-precisa ter o npm né
+vai abrir no navegador, aí vai em inspecionar elemento e clica no modo de design responsivo do seu navegador pra ver como um celular

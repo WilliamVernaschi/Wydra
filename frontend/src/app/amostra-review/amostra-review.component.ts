@@ -1,8 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {Review} from "../models/Review";
-import { Router } from '@angular/router';
 import { NavController} from '@ionic/angular'
-import { extractColors } from "extract-colors";
+import { DominantColorService } from '../dominant-color.service';
 
 @Component({
   selector: 'app-amostra-review',
@@ -12,14 +11,14 @@ import { extractColors } from "extract-colors";
 export class AmostraReviewComponent implements OnInit {
 
   @Input({required: true}) review! : Review;
-  constructor(private navCtrl : NavController) { }
+  constructor(private navCtrl : NavController, private dominantColorService : DominantColorService) { }
   dominante = "#000000";
 
   liked : boolean = false;
 
 
   async ngOnInit() {
-    this.dominante = await this.corDominante();
+    this.dominante = await this.dominantColorService.corDominante(this.review.albumCoverPath)
   }
 
   get quantoTempoAtras() : string{
@@ -66,10 +65,11 @@ export class AmostraReviewComponent implements OnInit {
       : this.review.comentario;
   }
 
-  async corDominante(){
-    return (await extractColors("../../assets/yeezus.jpg"))[0].hex;
-
+  goToReview(){
+    this.navCtrl.navigateForward(`/tabs/feed/review/${this.review.id}`);
   }
+
+  
 
 
 

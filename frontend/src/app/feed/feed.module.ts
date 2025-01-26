@@ -11,6 +11,8 @@ import { ReviewComponent } from '../review/review.component';
 import { ReviewService } from '../review.service';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { ToastService } from '../toast.service';
+import { FancyTitleComponent } from '../fancy-title/fancy-title.component';
+import { FancyScoreComponent } from '../fancy-score/fancy-score.component';
 
 @NgModule({
   imports: [
@@ -20,7 +22,7 @@ import { ToastService } from '../toast.service';
     ExploreContainerComponentModule,
     FeedPageRoutingModule,
   ],
-  declarations: [FeedPage, AmostraReviewComponent, ReviewComponent],
+  declarations: [FeedPage, AmostraReviewComponent, ReviewComponent, FancyTitleComponent, FancyScoreComponent],
   providers: [ReviewService, HttpClient, ToastService]
 })
 export class FeedPageModule {}
