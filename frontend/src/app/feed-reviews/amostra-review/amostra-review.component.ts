@@ -1,7 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {Review} from "../models/Review";
+import {Review} from "../../models/Review";
 import { NavController} from '@ionic/angular'
-import { DominantColorService } from '../dominant-color.service';
+import { DominantColorService } from '../../services/dominant-color.service';
 
 @Component({
   selector: 'app-amostra-review',

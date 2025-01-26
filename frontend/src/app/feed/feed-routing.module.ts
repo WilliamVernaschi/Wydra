@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { FeedPage } from './feed.page';
 import { ReviewComponent } from '../review/review.component';
-import { FeedExploreComponent } from '../feed-explore/feed-explore.component';
+import { FeedExploreComponent } from './feed-explore/feed-explore.component';
 import { FeedReviewsComponent } from '../feed-reviews/feed-reviews.component';
 
 const routes: Routes = [

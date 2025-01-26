@@ -3,21 +3,18 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { BuscaPage } from './busca.page';
-import { ExploreContainerComponentModule } from '../explore-container/explore-container.module';
-
 import { BuscaPageRoutingModule } from './busca-routing.module';
-import { SearchResultItemComponent } from '../search-result-item/search-result-item.component';
-import { FancyScoreComponent } from '../fancy-score/fancy-score.component';
-import { FancyTitleComponent } from '../fancy-title/fancy-title.component';
+import { SearchResultItemComponent } from './search-result-item/search-result-item.component';
+import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
   imports: [
     IonicModule,
     CommonModule,
     FormsModule,
-    ExploreContainerComponentModule,
-    BuscaPageRoutingModule
+    BuscaPageRoutingModule,
+    SharedModule
   ],
-  declarations: [BuscaPage, SearchResultItemComponent, FancyScoreComponent, FancyTitleComponent]
+  declarations: [BuscaPage, SearchResultItemComponent ]
 })
-export class BuscaPageModule {}
+export class BuscaModule {}

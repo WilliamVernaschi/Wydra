@@ -1,8 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { ResultadoBusca } from '../models/ResultadoBusca';
-import { SearchResult } from '../models/SearchResult';
-import { SearchService } from '../search.service';
-import { DominantColorService } from '../dominant-color.service';
+import { ResultadoBusca } from '../../models/ResultadoBusca';
+import { SearchResult } from '../../models/SearchResult';
+import { SearchService } from '../../services/search.service';
+import { DominantColorService } from '../../services/dominant-color.service';
 
 @Component({
   selector: 'app-search-result-item',

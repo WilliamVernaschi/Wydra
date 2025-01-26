@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { ReviewService } from '../review.service';
+import { ReviewService } from '../services/review.service';
 import { Review } from '../models/Review';
+import { ToastService } from '../services/toast.service';
 
 @Component({
   selector: 'app-feed-reviews',
@@ -11,25 +12,27 @@ import { Review } from '../models/Review';
 export class FeedReviewsComponent  implements OnInit {
 
   feedReviews: Review[] = [];
+  
+  constructor(private router : Router, private reviewService : ReviewService, private toastService : ToastService) {}
 
-  constructor(private router : Router, private reviewService : ReviewService) {}
-  
-    putReviewOnFeed(review : Review | undefined){
-      if(review){
-        this.feedReviews.push(review)
-      }
-  
+  putReviewOnFeed(review : Review | undefined){
+    if(review){
+      this.feedReviews.push(review)
     }
-  
-  
-    async ngOnInit() {
-      
-      
-      
-      this.putReviewOnFeed(this.reviewService.getReviewById('0'));
-      this.putReviewOnFeed(this.reviewService.getReviewById('1'));
-      this.putReviewOnFeed(this.reviewService.getReviewById('2'));
-      this.putReviewOnFeed(this.reviewService.getReviewById('3'));
-    }
+
+  }
+
+
+  async ngOnInit() {
+    
+    
+    
+    this.putReviewOnFeed(this.reviewService.getReviewById('0'));
+    this.putReviewOnFeed(this.reviewService.getReviewById('1'));
+    this.putReviewOnFeed(this.reviewService.getReviewById('2'));
+    this.putReviewOnFeed(this.reviewService.getReviewById('3'));
+    this.putReviewOnFeed(this.reviewService.getReviewById('4'));
+    this.putReviewOnFeed(this.reviewService.getReviewById('5'));
+  }
 
 }

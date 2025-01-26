@@ -1,0 +1,38 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+}
+
+.spacer {
+    flex-grow: 1;
+}
+
+form {
+    width: 500px;
+}
+
+.title {
+    font-family: 'Joan';
+    font-size: 32px;
+    margin-bottom: 16px;
+}
+
+.text {
+    font-family: 'Libre Franklin';
+    font-size: 20px;
+}
+
+.headline {
+    margin-bottom: 32px;
+    max-width: 500px;
+}
+
+.signup {
+    color: var(--ion-color-primary);
+}
+
+.fp {
+    font-size: 12px;
+}

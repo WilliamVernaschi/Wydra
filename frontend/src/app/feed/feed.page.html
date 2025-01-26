@@ -6,19 +6,20 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true" class="ion-padding">
+<ion-content class="ion-padding">
   <div class="review-container">
-  <ion-segment mode="ios" value="avaliacoes"  (ionChange)="segmentChanged($event)">
-    <ion-segment-button value="avaliacoes">
-      <ion-label>Avaliações</ion-label>
-    </ion-segment-button>
-    <ion-segment-button value="explorar">
-      <ion-label>Explorar</ion-label>
-    </ion-segment-button>
-  </ion-segment>
+    <ion-segment mode="ios" [(ngModel)]="selectedSegment" (ionChange)="segmentChanged($event)">
+      <ion-segment-button value="avaliacoes">
+        <ion-label>Avaliações</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="explorar">
+        <ion-label>Explorar</ion-label>
+      </ion-segment-button>
+    </ion-segment>
 
     
-    <app-amostra-review *ngFor="let review of feedReviews" [review]="review"></app-amostra-review>
+    
+    <router-outlet></router-outlet>
   </div>
-  
 </ion-content>
+    

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { firstValueFrom, Observable } from 'rxjs';
-import { Review } from './models/Review';
+import { Review } from '../models/Review';
 
 @Injectable({
   providedIn: 'root'
@@ -82,12 +82,42 @@ export class ReviewService {
       createdAt: new Date('2025-01-25T12:00:00Z'),
       albumCoverPath: 'assets/in-the-court.jpg',
       reviewerPath: 'assets/person1.jpg'
-    }
+    },
+    {
+      "artista": "Beyoncé",
+      "id": "4",
+      "userId": "4",
+      "nomeUsuario": "Paulo Mota",
+      "avaliacao": 10.0,
+      "comentario": "Formation é um dos momentos mais impactantes do álbum *Lemonade*, não só pela sua produção imersiva e ousada, mas também pela força das suas mensagens. A música mistura elementos do hip-hop com soul e funk, criando uma batida inconfundível que se torna quase um manifesto de empoderamento. As letras falam sobre resistência, identidade e orgulho, tocando em temas como a cultura negra e o feminismo com uma honestidade crua.\n\nA produção de Mike WiLL Made-It complementa a agressividade da música com uma linha de baixo pulsante e batidas poderosas que capturam a essência de luta e celebração. O videoclipe, igualmente impactante, se tornou um marco na cultura pop e ajudou a solidificar *Formation* como um hino de orgulho e resistência.\n\nRecomendo essa música para quem procura uma declaração musical que mistura potência e vulnerabilidade de forma única.",
+      "musica": "Formation",
+      createdAt: new Date('2024-12-19T12:00:00Z'),
+      "albumCoverPath": "assets/lemonade.jpg",
+      "reviewerPath": "assets/person4.jpg"
+    },
+    {
+      "artista": "FKA twigs",
+      "id": "5",
+      "userId": "5",
+      "nomeUsuario": "Ana Silva",
+      "avaliacao": 9.5,
+      "comentario": "Two Weeks é uma das faixas mais hipnotizantes de *LP1*, uma mistura de sensualidade, experimentalismo e emoção. A produção é minimalista, com batidas eletrônicas sutis e a voz etérea de FKA twigs dominando a faixa. A música é carregada de tensão, tanto na sua sonoridade quanto na interpretação vocal, que transmite uma vulnerabilidade ao mesmo tempo em que se mantém implacável.\n\nA letra explora temas de desejo e de se entregar ao outro, mas com um senso de controle e autodeterminação que é característico da artista. A melodia é cativante, mas o verdadeiro destaque da música é a atmosfera que ela cria – sombria e envolvente.\n\nRecomendo essa música para quem gosta de experimentações sonoras e está em busca de uma música que desafia as convenções do R&B moderno.",
+      "musica": "Two Weeks",
+      createdAt: new Date('2024-12-19T12:00:00Z'),
+      "albumCoverPath": "assets/lp1.jpg",
+      "reviewerPath": "assets/person3.jpg"
+    },
   ]
 
   getReviewById(id: string): Review | undefined {
     return this.reviews.find(review => review.id === id);
   }
+
+  getRandomReview() : Review {
+    const randomIndex = Math.floor(Math.random() * this.reviews.length);
+    return this.reviews[randomIndex];
+  }
+  
 
 
 }

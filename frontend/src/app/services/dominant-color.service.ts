@@ -15,7 +15,7 @@ export class DominantColorService {
     let dominantColor = colors[0].hex; // Get the first (most dominant) color
 
     // Retrieve the value of --var-ion-color from the CSS variables
-    const ionColor = getComputedStyle(document.documentElement).getPropertyValue('--var-ion-color').trim() || '#ffffff';
+    const ionColor = getComputedStyle(document.documentElement).getPropertyValue('--ion-text-color').trim() || '#ffffff';
 
     // Ensure good contrast with the retrieved CSS variable
     const minContrast = 4.5; // WCAG standard for normal text

@@ -1,13 +1,51 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>usuario</ion-title>
+    <ion-title class="ion-text-center">
+      Wydra
+    </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">usuario</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content [fullscreen]="true" class="ion-padding">
+  <div class="container">
+    <img width="400px" src="assets/login-art.png">
+  
+
+    <section class="headline">
+      <ion-title class="title ion-no-padding">Conecte-se. Descubra seu som.</ion-title>
+      <ion-text class="text">Siga avaliadores, descubra as novas tendências, compartilhe sua opinião.</ion-text>
+    </section>
+
+    <form>
+      
+      <ion-input
+            email
+            mode="md"
+            fill="outline"
+            label="Email"
+            name="userLogin"
+            errorText="Insira um email válido"
+            labelPlacement="floating">
+      </ion-input>
+      <ion-input
+            password
+            mode="md"
+            fill="outline"
+            label="Senha"
+            name="userLogin"
+            errorText="Insira uma senha válida"
+            labelPlacement="floating">
+      </ion-input>
+
+      <ion-text class="signup fp">Esqueceu sua senha?</ion-text>
+
+      <ion-button style="width: 100%; max-width: 500px;" color="primary">Entrar</ion-button>
+    </form>
+
+    <hr>
+
+    <div class="spacer"></div>
+
+    <ion-text>Não tem uma conta? <span class="signup">Cadastre-se</span></ion-text>
+  </div>
 </ion-content>

@@ -2,9 +2,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Review } from '../models/Review';
-import { ReviewService } from '../review.service';
-import { ToastService } from '../toast.service';
-import { DominantColorService } from '../dominant-color.service';
+import { ReviewService } from '../services/review.service';
+import { ToastService } from '../services/toast.service';
+import { DominantColorService } from '../services/dominant-color.service';
 
 @Component({
   selector: 'app-review',

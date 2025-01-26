@@ -1,17 +1,18 @@
 import { Component, OnInit } from '@angular/core';
 import {Review} from "../models/Review";
-import { ReviewService } from '../review.service';
-import { ToastService } from '../toast.service';
+import { ReviewService } from '../services/review.service';
+import { ToastService } from '../services/toast.service';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-tab1',
+  selector: 'app-feed',
   templateUrl: 'feed.page.html',
   styleUrls: ['feed.page.scss']
 })
 export class FeedPage implements OnInit{
 
   feedReviews: Review[] = [];
+  selectedSegment = 'avaliacoes'; // default
 
   constructor(private router : Router, private reviewService : ReviewService, private toastService : ToastService) {}
 
@@ -31,11 +32,14 @@ export class FeedPage implements OnInit{
     this.putReviewOnFeed(this.reviewService.getReviewById('1'));
     this.putReviewOnFeed(this.reviewService.getReviewById('2'));
     this.putReviewOnFeed(this.reviewService.getReviewById('3'));
+    this.putReviewOnFeed(this.reviewService.getReviewById('4'));
+    this.putReviewOnFeed(this.reviewService.getReviewById('5'));
   }
 
   segmentChanged(event: any) {
     const selectedSegment = event.detail.value;
-    this.router.navigate([`/feed/${selectedSegment}`]);
+    this.router.navigate([`tabs/feed/${selectedSegment}`]);
+    this.selectedSegment = selectedSegment;
   }
 
 

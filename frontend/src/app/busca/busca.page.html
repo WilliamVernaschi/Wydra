@@ -1,7 +1,7 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>
-      Busca
+    <ion-title class="ion-text-center">
+      Wydra
     </ion-title>
   </ion-toolbar>
 </ion-header>
@@ -16,9 +16,15 @@
   
 
   <div class="container">
-    <ion-searchbar placeholder="Digite uma música"></ion-searchbar>
+    <ion-searchbar (ionInput)="handleInput($event)" placeholder="Digite uma música"></ion-searchbar>
     <hr>
     <app-search-result-item *ngFor="let result of results" [resultadoBusca]="result"></app-search-result-item>
+    @if(searchState === 'EMPTY'){
+      <ion-text style="margin-top: 200px; ">Digite para pesquisar músicas e álbuns</ion-text>
+    }
+    @else if(searchState === 'NO_RESULT'){
+      <ion-text style="margin-top: 200px;">Nenhum resultado encontrado para sua pesquisa!</ion-text>
+    }
   </div>
   
 
